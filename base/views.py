@@ -85,7 +85,7 @@ def chatRoom(request,pk):
     context={"room":room,"chat_messages":chat_messages}
     return render(request,"base/chat_room.html",context=context)
 
-
+@login_required(login_url="home")
 def profile(request,pk):
     user = User.objects.get(id=pk)
     chat_messages = user.message_set.all()
