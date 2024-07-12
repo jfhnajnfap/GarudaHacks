@@ -8,19 +8,24 @@
 </head>
 
 <div class="page_1">
-    <h1>Connect</h1>
+    <div class="items">
+    <h1 class="title">CONNECT</h1>
     {% if request.user.is_authenticated %}
-    <li><a href="{% url 'logout' %}">Logout</a></li>
-    <li><a href="">COMMUNITIES</a></li>
+    <li><a href="{% url 'room_list' %}" class="btn">COMMUNITIES</a></li>
+    <br>
+    <br>
+    <br>
+    <br>
     <li>
-        <form action="{% url 'room_list' %}">
-            <input type="text" name="q" placeholder="Search Room...">
+        <form action="{% url 'room_list' %}" class="form">
+            <input type="text" name="q" placeholder="Search Room..." >
         </form>
     </li>
     {% else %}
-    <li><a href="{% url 'login' %}">Login</a></li>
-    <li><a href="{% url 'register' %}">Register</a></li>
+    <li><a href="{% url 'login' %}" class="btn2">Login</a></li>
+    <li><a href="{% url 'register' %}" class="btn2">Register</a></li>
     {% endif %}
+</div>
 </div>
 
 

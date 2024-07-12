@@ -1,22 +1,31 @@
 {% extends 'base/navbar.html' %}
-<head>
-
+{% load static %}
 
 {% block content %}
-<ul>
-    {% for room in rooms %}
-    <div class="card">
+
+<head>
+    <link rel="stylesheet" href="{% static 'styles/room_list.css' %}">
+</head>
+<div class="page">
+    <ul>
+        {% for room in rooms %}
         <a href="{% url 'chatroom' room.id %}">
-            <li>
-                {{room}}
-                <br>
-                {{room.description}}
+            <div class="card">
+
+                <li>
+                    <b>{{room}}</b>
+                    <br>
+                    {{room.description}}
+
+                </li>
+
+            </div>
         </a>
-        </li>
-    </div>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
+
 <div class="create_button">
-    <a href="{% url 'create_room' %}">Create Room</a>
+    <a href="{% url 'create_room' %}" class="create">+ Create Room</a>
 </div>
 {% endblock content %}

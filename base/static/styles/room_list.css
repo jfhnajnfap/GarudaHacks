@@ -1,0 +1,30 @@
+a {
+    color: black;
+}
+
+.card {
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.19);
+    height: 4rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.page {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+li {
+    display: inline;
+    color: black;
+}
+
+.create:hover {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+
+}

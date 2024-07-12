@@ -1,6 +1,9 @@
 {% extends 'base/navbar.html' %}
-
+{% load static %}
 {% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
 {% if page == "login" %}
 <form action="" method="POST">
     {% csrf_token %}
@@ -13,7 +16,7 @@
     <input type="submit" value="Login">
 </form>
 <p>Haven't Signed Up Yet?</p>
-<a href="{% url 'register' %}">Sign Up</a>
+<a href="{% url 'register' %}" class="sign">Sign Up</a>
 {% else %}
 <form action="" method="POST">
     {% csrf_token %}
@@ -21,7 +24,7 @@
     <input type="submit" value="post">
 </form>
 <p>Already Signed Up Yet?</p>
-<a href="{% url 'login' %}">Sign In</a>
+<a href="{% url 'login' %}" class="sign">Sign In</a>
 {% endif %}
 {% if messages %}
 <ul class="messages">
