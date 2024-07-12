@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponse
 from .models import *
 from .forms import *
 from django.contrib.auth import login, logout, authenticate
@@ -30,16 +30,6 @@ def create_room(request):
             return redirect('room_list')
     context = {"form":form}
     return render(request, "base/form.html",context=context)
-@login_required(login_url="home")
-def edit_room(request,pk):
-    room = Room.objects.get(id=pk)
-    form = RoomForm(instance=room)
-    if request.method == 'POST':
-        form = RoomForm(request.POST , instance=room)
-        if form.is_valid():
-            room = form.save(commit=False)
-            room.user = request.user
-            room.save()
 
 
 
@@ -94,3 +84,11 @@ def chatRoom(request,pk):
         return redirect("chatroom", pk=room.id)
     context={"room":room,"chat_messages":chat_messages}
     return render(request,"base/chat_room.html",context=context)
+
+
+def profile(request,pk):
+    user = User.objects.get(id=pk)
+    chat_messages = user.message_set.all()
+    rooms = user.room_set.all()
+    context = {"user":user,"chat_messages":chat_messages,"rooms":rooms}
+    return render(request, "base/profile.html",context=context)

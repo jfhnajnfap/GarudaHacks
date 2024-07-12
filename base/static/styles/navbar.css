@@ -31,6 +31,9 @@ a{
     font-size: 2.8rem;
     font-weight: bold;
 }
+.profile:hover{
+    font-weight: 100;
+}
 .profile2{
     position:absolute;
     right:5%;

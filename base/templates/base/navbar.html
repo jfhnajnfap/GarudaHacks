@@ -14,7 +14,7 @@
         <ul>
             <li><a href="{% url 'home' %}"><i class="material-icons" id="home">house</i></a></li>
             <li>
-                <a href="{% url 'room_list' %}" class="profile">@</a></li>
+                <a href="{% url 'profile' request.user.id %}" class="profile">@</a></li>
                 {% if request.user.is_authenticated %}
                 <a href="{% url 'logout' %}" class="profile2">Logout</a>
                 {% endif %}
